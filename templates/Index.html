@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestor de Contactos</title>
+</head>
+<body>
+    <h1>Gestor de Contactos</h1>
+
+    <a href="/create">➕ Crear nuevo contacto</a>
+    <br><br>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+
+        {% for c in contacts %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.phone }}</td>
+            <td>{{ c.email }}</td>
+            <td>
+                <a href="/edit/{{ c.id }}">Editar</a> |
+                <a href="/delete/{{ c.id }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
